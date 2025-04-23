@@ -1,1 +1,1 @@
-# Yapay-Zeka-Tabanli-Yuz-Tanima-Destekli-Web-Sitesi-Projesi
+# Yapay Zeka Tabanlı Yüz Tanıma Destekli Web Sitesi
