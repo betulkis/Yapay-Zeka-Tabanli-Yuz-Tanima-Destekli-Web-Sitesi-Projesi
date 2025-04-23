@@ -1,0 +1,55 @@
+<!--AKADEMİK TAKVİM html kodları --> 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademik Takvim</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user-style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Üst Panel -->
+    <div class="top-panel">
+        <div class="panel-left">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+        </div>
+        <div class="panel-center">
+            <h3>{{ db_verisi_orta }}</h3>
+        </div>
+        <div class="panel-right">
+            <h3>{{ db_verisi_sag }}</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Hoşgeldin {{ current_user.ad }}</h1>
+        </div>
+        <div class="dashboard">
+            <!-- Sol Kısım (Kategoriler) -->
+            <div class="categories">
+                <h2>Kategoriler</h2>
+                <ul>
+                    <li><a href="{{ url_for('user_dashboard') }}" class="btn">Anasayfa</a></li>
+                    <li><a href="{{ url_for('academic_calendar') }}" class="btn">Akademik Takvim</a></li>
+                    <li><a href="{{ url_for('advisor_info') }}" class="btn">Danışman Bilgileri</a></li>
+                    <li><a href="{{ url_for('course_schedule') }}" class="btn">Ders Programı</a></li>
+                    <li><a href="{{ url_for('transcript') }}" class="btn">Transkript</a></li>
+                    <li><a href="{{ url_for('exam_results') }}" class="btn">Sınav Sonuçları</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="btn btn-logout">Çıkış Yap</a></li>
+                </ul>
+            </div>
+
+            <!-- Orta ve Sağ Kısım -->
+            <div class="main-content">
+                <!-- Görseli ekleyelim -->
+                <div class="image-container2">
+                    <img src="{{ url_for('static', filename='img/academic_calendar.jpg') }}" alt="Akademik Takvim Görseli">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

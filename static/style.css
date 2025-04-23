@@ -1,0 +1,136 @@
+/*  BAŞLANGIÇ EKRANI STİLİ . KAYIT OL GİRİŞ YAP EKRANLARI */
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-image: url('img/bg-01.jpg'); /* Arka plan görseli */
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+}
+
+/* Başlık için görsel ekleme */
+.header-image {
+    text-align: center;
+    margin-bottom: 20px; /* Görsel ile başlık arasındaki boşluk */
+}
+
+.header-image img {
+    width: 100px; /* Görsel genişliği */
+    height: auto; /* Yükseklik oranı korunur */
+}
+
+/* Başlık stil ayarları */
+h1 {
+    color: #203449; /* Başlık rengi */
+    font-size: 36px; /* Başlık boyutu */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic; /* İtalik yazı */
+}
+
+h2 {
+    color: #203449; /* Başlık rengi */
+    font-size: px; /* Başlık boyutu */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Ana içerik kutusu */
+.container {
+    background: rgba(100, 95, 95, 0.8); /* Yarı saydam arka plan */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Giriş butonları */
+button {
+    background: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+    width: 200px; /* Buton genişliği */
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Giriş formu */
+input {
+    padding: 10px;
+    margin: 8px;
+    width: 250px; /* Giriş alanlarının genişliği */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Flash mesajları (başarı/hatta mesajları) */
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.flash-messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.flash-messages li.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.flash-messages li.danger {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Video akışının stilini ayarlama */
+img {
+    width: 100%; /* Görselin genişliği */
+    height: auto; /* Yükseklik oranı korunur */
+    max-width: 400px; /* Maksimum genişlik */
+    border-radius: 8px; /* Kenar yuvarlama */
+    margin-top: 20px;
+}
+
+/* Responsive tasarım için düzenlemeler */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%; /* Mobilde kutu genişliği %90 */
+    }
+
+    h1 {
+        font-size: 28px; /* Başlık boyutu mobilde küçülür */
+    }
+
+    input, button {
+        width: 100%; /* Butonlar ve giriş alanları tam genişlikte */
+    }
+}
+

@@ -1,0 +1,30 @@
+<!-- BAŞLANGIÇ SAYFASI --> 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ana Sayfa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Hoş Geldiniz başlığının üstüne görsel ekleyin -->
+        <div class="header-image">
+            <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="Logo" width="100">
+        </div>
+        
+        <h1>Hoş Geldiniz!</h1>
+        {% if current_user.is_authenticated %}
+            <p>Merhaba {{ current_user.ad}}</p>
+            <a href="{{ url_for('logout') }}"><button>Çıkış Yap</button></a>
+            {% if current_user.is_admin %}
+                <a href="{{ url_for('admin') }}"><button>Admin Paneli</button></a>
+            {% endif %}
+        {% else %}
+            <a href="{{ url_for('login') }}"><button>Giriş Yap</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>

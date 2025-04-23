@@ -1,0 +1,194 @@
+/* KULLANICI GİRİŞ YAPTIKTAN SONRA GÖRDÜĞÜ SAYFALARIN STİLİ  AKADEMİK TAKVİM SINAV SONUÇLARI EKRANLARI GİBİ */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Üst Panel */
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 30px;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.panel-left img {
+    height: 50px;
+}
+
+.panel-center, .panel-right {
+    flex: 1;
+    text-align: center;
+}
+
+.panel-right {
+    text-align: right;
+}
+
+h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Ana Sayfa */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+/* Dashboard Düzeni */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Sol - Orta - Sağ */
+    gap: 30px;
+}
+
+.categories {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Kategoriler Listesi */
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories ul li {
+    margin-bottom: 15px;
+}
+
+.categories ul li a {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.categories ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Orta ve Sağ Kısımlar */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.center-content, .right-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-content h2, .right-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.center-content p, .right-content p {
+    font-size: 16px;
+}
+
+/* Butonlar */
+.btn {
+    display: block;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+}
+
+.btn-logout {
+    background-color: #e74c3c;
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+}
+
+
+.image-container2 img {
+    max-width: 150%; /* Görselin ekran genişliğine sığmasını sağlar */
+    max-height: 100vh; /* Görselin yüksekliğini ekran boyutuna sınırlar */
+    object-fit: contain; /* Görselin oranını koruyarak alanı doldurmasını sağlar */
+    display: block; /* Görselin blok eleman gibi davranmasını sağlar */
+    margin: 0 auto; /* Ortalamayı sağlar */
+}
+
+
+/* Mobil uyumlu */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .top-panel {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .panel-left, .panel-center, .panel-right {
+        flex: unset;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,69 @@
+<!-- KULLANICI ANA SAYFASI html kodları --> 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user-style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Üst Panel -->
+    <div class="top-panel">
+        <div class="panel-left">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+        </div>
+        <div class="panel-center">
+            <h3>{{ db_verisi_orta }}</h3>
+        </div>
+        <div class="panel-right">
+            <h3>{{ db_verisi_sag }}</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1></h1>
+        </div>
+        <div class="dashboard">
+            <!-- Sol Kısım (Kategoriler) -->
+            <div class="categories">
+                <h2>Kategoriler</h2>
+                <ul>
+                    <li><a href="{{ url_for('user_dashboard') }}" class="btn">Anasayfa</a></li>
+                    <li><a href="{{ url_for('academic_calendar') }}" class="btn">Akademik Takvim</a></li>
+                    <li><a href="{{ url_for('advisor_info') }}" class="btn">Danışman Bilgileri</a></li>
+                    <li><a href="{{ url_for('course_schedule') }}" class="btn">Ders Programı</a></li>
+                    <li><a href="{{ url_for('transcript') }}" class="btn">Transkript</a></li>
+                    <li><a href="{{ url_for('exam_results') }}" class="btn">Sınav Sonuçları</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="btn btn-logout">Çıkış Yap</a></li>
+                </ul>
+            </div>
+
+            <!-- Orta ve Sağ Kısım -->
+            <div class="main-content">
+                <div class="center-content">
+                    <h2>Kullanıcı Bilgileri</h2>
+                    <p><strong>Öğrenci Numarası:</strong> {{ user.username }}</p>
+                    <p><strong>Ad:</strong> {{ user.ad }}</p>
+                    <p><strong>Soyad:</strong> {{ user.soyad }}</p>
+                    <p><strong>TC No:</strong> {{ user.tc }}</p>
+                    <p><strong>Cinsiyet:</strong> {{ user.cinsiyet }}</p>
+                    <p><strong>Doğum Tarihi:</strong> {{ user.dogum }}</p>
+                </div>
+                <div class="right-content">
+                    <h2>Duyurular</h2>
+                        <div class="announcement">
+                            <b><h3>Ders Kayıtları</h3></b>
+                            <p>Ders kayıtları 06.02.2025 tarihinde sona erecektir. Öğrencilerimizin kayıt işlemlerini tamamlaması gerekmektedir.</p>
+                            <h3>Staj Deterleri Hakkında Önemli Duyuru</h3>
+                            <p>Biligsayar Mühendisliği staj defterleri güncellenmiştir.</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- ADMİN EKRANI html kodları --> 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin-style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Paneli</h1>
+        <h2>Hoş geldiniz {{ current_user.ad }}</h2>
+        <a href="{{ url_for('register') }}"><button class="logout-btn">Kayıt Ol</button></a>
+        <a href="{{ url_for('logout') }}"><button class="logout-btn">Çıkış Yap</button></a>
+        
+        <div class="admin-content">
+            <h2>Kullanıcı Listesi</h2>
+
+            <!-- Arama Barı -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Kullanıcı Ara..." onkeyup="searchTable()">
+            </div>
+
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Öğrenci Numarası</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>TC No</th>
+                        <th>Cinsiyet</th>
+                        <th>Doğum Tarihi</th>
+                        <th>Transkript</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.ad }}</td>
+                            <td>{{ user.soyad }}</td>
+                            <td>{{ user.tc }}</td>
+                            <td>{{ user.cinsiyet }}</td>
+                            <td>{{ user.dogum }}</td>
+                            <td>
+                                <!-- Transkript butonu -->
+                                <a href="{{ url_for('static', filename='docs/trans.' + user.username + '.pdf') }}">
+                                    <button class="transcript-btn">Transkripti Görüntüle</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Arama fonksiyonu
+        function searchTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("userTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                var match = false;
+                for (var j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            match = true;
+                            break;
+                        }
+                    }
+                }
+                tr[i].style.display = match ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>

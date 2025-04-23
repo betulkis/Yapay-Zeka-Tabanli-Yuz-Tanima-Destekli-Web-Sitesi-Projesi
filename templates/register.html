@@ -1,0 +1,35 @@
+<!--register KAYIT ekranı html kodları --> 
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Kayıt Ol</h1>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required><br>
+            <input type="text" name="tc" placeholder="TC Kimlik No" required><br>
+            <input type="text" name="ad" placeholder="Ad" required><br>
+            <input type="text" name="soyad" placeholder="Soyad" required><br>
+            <select name="cinsiyet" required>
+                <option value="">Cinsiyet Seçin</option>
+                <option value="Erkek">Erkek</option>
+                <option value="Kadın">Kadın</option>
+            </select><br>
+            <input type="date" name="dogum" required><br>
+            <input type="password" name="password" placeholder="Şifre" required><br>
+            <label><input type="checkbox" name="is_admin"> Admin Kullanıcı</label><br>
+            <button type="submit">Kayıt Ol</button>
+        </form>
+
+        <h2>Yüz Kaydetme İçin Kamera Görüntüsü</h2>
+        <img src="{{ url_for('video_feed') }}" width="400" height="300" />
+    </div>
+</body>
+</html>
